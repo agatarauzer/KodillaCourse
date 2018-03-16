@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CollectionTestSuite {
 
@@ -13,6 +14,7 @@ public class CollectionTestSuite {
     public void before(){
         System.out.println("Test Case: begin");
     }
+
     @After
     public void after(){
         System.out.println("Test Case: end");
@@ -22,7 +24,7 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorEmptyList() {
 
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
-        ArrayList<Integer> testList = new ArrayList<>();
+        List<Integer> testList = new ArrayList<>();
 
         exterminator.exterminate(testList);
 
@@ -33,7 +35,7 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorNormalList() {
 
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
-        ArrayList<Integer> testList = new ArrayList<>();
+        List<Integer> testList = new ArrayList<>();
         for (int i = 1; i < 5; i++) {
             testList.add(i);
         }
