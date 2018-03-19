@@ -1,14 +1,20 @@
 package com.kodilla.testing.shape;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class ShapeCollectorTestSuite {
 
+    private ShapeCollector testCollector;
+
+    @Before
+    public void createCollector() {
+        testCollector = new ShapeCollector();
+    }
 
     @Test
     public void addFigureTest() {
-        ShapeCollector testCollector = new ShapeCollector();
         Shape testShape = new Square(2);
 
         testCollector.addFigure(testShape);
@@ -18,7 +24,6 @@ public class ShapeCollectorTestSuite {
 
     @Test
     public void removeExistingFigureTest() {
-        ShapeCollector testCollector = new ShapeCollector();
         Shape testShape = new Square(2);
         testCollector.addFigure(testShape);
 
@@ -29,7 +34,6 @@ public class ShapeCollectorTestSuite {
 
     @Test
     public void removeNotExistingFigureTest() {
-        ShapeCollector testCollector = new ShapeCollector();
         Shape testShape = new Square(2);
 
         boolean isRemoved = testCollector.removeFigure(testShape);
@@ -39,7 +43,6 @@ public class ShapeCollectorTestSuite {
 
     @Test
     public void getFigureFromCorrectIndexTest() {
-        ShapeCollector testCollector = new ShapeCollector();
         Shape square = new Square(2);
         Shape circle = new Circle(4);
         testCollector.addFigure(square);
@@ -51,7 +54,6 @@ public class ShapeCollectorTestSuite {
 
     @Test(expected = IllegalArgumentException.class)
     public void getFigureFromWrongIndexTest() {
-        ShapeCollector testCollector = new ShapeCollector();
         Shape square = new Square(2);
         testCollector.addFigure(square);
 
