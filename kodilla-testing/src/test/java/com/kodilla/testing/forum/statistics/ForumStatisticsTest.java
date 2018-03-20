@@ -124,8 +124,7 @@ public class ForumStatisticsTest {
     private List<String> generateUsersList(int number) {
         List<String> users = new ArrayList<>();
         for (int i = 0; i < number; i++) {
-            String name = "name";
-            users.add(name);
+            users.add("name");
         }
         return users;
     }
