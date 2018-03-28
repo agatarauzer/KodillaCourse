@@ -7,7 +7,8 @@ public class ArrayAverage implements ArrayOperations {
     public double getAverage(int[] numbers) {
         IntStream.of(numbers).forEach(System.out::println);
 
-        double average = IntStream.range(numbers[0], numbers[numbers.length - 1])
+        double average = IntStream.range(0, numbers.length)
+                .mapToDouble(k -> numbers[k])
                 .average()
                 .getAsDouble();
 

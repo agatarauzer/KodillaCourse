@@ -20,6 +20,6 @@ public class ArrayAverageTestSuite {
         double testAverage = arrayAverage.getAverage(testArray);
 
         //then
-        Assert.assertEquals(22.0, testAverage, 0.001);
+        Assert.assertEquals(22.5, testAverage, 0.001);
     }
 }
