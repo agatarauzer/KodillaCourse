@@ -1,0 +1,29 @@
+package com.kodilla.good.patterns.challenges.OrderingSystem;
+
+public class OrderProcessor {
+    private InformationService informationService;
+    private OrderingService orderingService;
+    private OrdersRepository ordersRepository;
+
+    public OrderProcessor(final InformationService informationService,
+                          final OrderingService orderingService,
+                          final OrdersRepository ordersRepository
+                               ) {
+        this.informationService = informationService;
+        this.orderingService = orderingService;
+        this.ordersRepository = ordersRepository;
+    }
+
+    public OrderDto process(final Order order) {
+        boolean isOrderd = orderingService.order(order.getUser(), order.getDateOfOrder());
+
+        if (isOrderd) {
+            informationService.inform(order.getUser());
+            ordersRepository.createOrder(order.getUser(), order.getDateOfOrder());
+            return new OrderDto(order.getUser(),true);
+        }
+        else {
+            return new OrderDto(order.getUser(), false);
+        }
+    }
+}
