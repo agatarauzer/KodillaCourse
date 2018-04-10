@@ -1,14 +1,13 @@
 package com.kodilla.good.patterns.challenges.Food2DoorOrderingSystem;
 
-import java.util.Objects;
 
-public class String {
-    private java.lang.String name;
+public class Product {
+    private String name;
     private double quantity;
-    private java.lang.String unit;
-    private java.lang.String productID;
+    private String unit;
+    private String productID;
 
-    public String(java.lang.String name, int quantity, java.lang.String unit, java.lang.String productID) {
+    public Product(String name, int quantity, String unit, String productID) {
         this.name = name;
         this.quantity = quantity;
         this.unit = unit;
@@ -20,19 +19,19 @@ public class String {
             quantity -= orderingQuantity;
             return true;
         }
-        else {
-            System.out.println("Not enough quantity of product!");
-            return false;
-        }
+        return false;
     }
 
-    public java.lang.String getProductID() {
+    public String getProductID() {
         return productID;
     }
 
-    public java.lang.String toString() {
+    public double getQuantity() {
+        return quantity;
+    }
+
+    public String toString() {
         return "product: " + name + " (id: " + productID + "), available quantity: " + quantity +
                 " " + unit;
     }
-
 }

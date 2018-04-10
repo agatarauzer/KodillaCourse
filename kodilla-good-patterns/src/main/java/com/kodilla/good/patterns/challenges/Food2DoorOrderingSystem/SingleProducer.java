@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.Food2DoorShopOrderingSystem;
+package com.kodilla.good.patterns.challenges.Food2DoorOrderingSystem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,20 +23,18 @@ public class SingleProducer implements Producer {
     }
 
     public boolean process(Order order) {
-            return isQuantityOfProductAvailable(order.getProduct(), order.getQuantity());
+            return isQuantityOfProductAvailable(order.getProductId(), order.getQuantity());
     }
 
-    public boolean isQuantityOfProductAvailable(Product product, double quantity) {
-        if (isProductAvailable(product)) {
-            if (product.isAvailableIn(quantity)) {
-                return true;
+    private boolean isQuantityOfProductAvailable(String productId, double quantity) {
+        for (Product product : products) {
+            if (product.getProductID().equals(productId)) {
+                if (product.isAvailableIn(quantity)) {
+                    return true;
+                }
             }
         }
         return false;
-    }
-
-    private boolean isProductAvailable(Product product) {
-        return products.contains(product);
     }
 }
 
