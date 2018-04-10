@@ -11,13 +11,16 @@ public class OrderProcessorTest {
     private Producer extraFoodShop;
     private Producer healthyShop;
     private Producer glutenFreeShop;
+    private Producer veganShop;
     private Producers producersList;
+
 
     @Before
     public void createData() {
         extraFoodShop = new SingleProducer("ExtraFoodShop");
         healthyShop = new SingleProducer("HealthyShop");
         glutenFreeShop = new SingleProducer("GlutenFreeShop");
+        veganShop = new SingleProducer("VeganShop");
 
         producersList = new Producers();
         producersList.addProducer(extraFoodShop);
@@ -40,24 +43,24 @@ public class OrderProcessorTest {
     }
 
     @Test
-    public void orderIsCompletedTest() {
+    public void orderIsCompleted() {
         //Given
         Order correctOrder = new Order("3333", 3);
 
         //When
-        boolean isOrderCompleted = orderProcessor.processOrder(healthyShop, correctOrder);
+        boolean isOrderCompleted = orderProcessor.processOrder(producersList, healthyShop, correctOrder);
 
         //Then
         Assert.assertTrue(isOrderCompleted);
     }
 
     @Test
-    public void orderForNotExistingProductTest() {
+    public void orderForNotExistingProduct() {
         //Given
         Order incorrectOrder = new Order("9999", 3);
 
         //When
-        boolean isOrderCompleted = orderProcessor.processOrder(healthyShop, incorrectOrder);
+        boolean isOrderCompleted = orderProcessor.processOrder(producersList, healthyShop, incorrectOrder);
 
         //Then
         Assert.assertFalse(isOrderCompleted);
@@ -69,9 +72,18 @@ public class OrderProcessorTest {
         Order incorrectOrder = new Order("1111", 6);
 
         //When
-        boolean isOrderCompleted = orderProcessor.processOrder(healthyShop, incorrectOrder);
+        boolean isOrderCompleted = orderProcessor.processOrder(producersList, extraFoodShop, incorrectOrder);
 
         //Then
         Assert.assertFalse(isOrderCompleted);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void orderWhenProducerIsNotOnAList() {
+        //Given
+        Order order = new Order("1111", 6);
+
+        //When
+        orderProcessor.processOrder(producersList, veganShop, order);
     }
 }

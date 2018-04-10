@@ -2,6 +2,7 @@ package com.kodilla.good.patterns.challenges.Food2DoorOrderingSystem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class SingleProducer implements Producer {
     private String name;
@@ -35,6 +36,20 @@ public class SingleProducer implements Producer {
             }
         }
         return false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SingleProducer that = (SingleProducer) o;
+        return Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(name);
     }
 }
 

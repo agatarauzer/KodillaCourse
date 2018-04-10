@@ -7,7 +7,7 @@ public class Product {
     private String unit;
     private String productID;
 
-    public Product(String name, int quantity, String unit, String productID) {
+    public Product(String name, double quantity, String unit, String productID) {
         this.name = name;
         this.quantity = quantity;
         this.unit = unit;
