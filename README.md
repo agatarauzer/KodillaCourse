@@ -1,6 +1,6 @@
 # KodillaCourse
 
-Solutions of exercises from Kodilla bootcamp.
+Solutions of exercises from Kodilla bootcamp.   
 Week 1. Object oriented programming  
 Week 2. Data and collections  
 Week 3. Java Collections Framework   
