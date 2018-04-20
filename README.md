@@ -9,5 +9,6 @@ Week 5. Project structure (Gradle)
 Week 6. Testing   
 Week 7. Streams  
 Week 8. Exceptions  
-Week 9. Good practices  
+Week 9. Good practices   
+Week 10. Introduction to Spring  
  
