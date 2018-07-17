@@ -7,10 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@NamedQuery(
-        name = "Employee.findEmployeeByLastName",
-        query = "FROM Employee WHERE lastName = :LASTNAME"
-)
+@NamedQueries({
+        @NamedQuery(
+            name = "Employee.findEmployeeByLastName",
+            query = "FROM Employee " +
+                    "WHERE lastName = :LASTNAME"
+        ),
+        @NamedQuery(name = "Employee.findEmploysByLastNameContainingWord",
+            query = "FROM Employee " +
+                    "WHERE lastName LIKE CONCAT('%', :word, '%')")
+})
 
 @Entity
 @Table(name = "EMPLOYEES")
