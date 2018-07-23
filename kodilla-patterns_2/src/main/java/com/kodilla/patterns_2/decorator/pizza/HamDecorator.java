@@ -1,6 +1,5 @@
 package com.kodilla.patterns_2.decorator.pizza;
 
-import java.math.BigDecimal;
 
 public class HamDecorator extends PizzaDecorator {
 
@@ -9,8 +8,8 @@ public class HamDecorator extends PizzaDecorator {
     }
 
     @Override
-    public BigDecimal getCost() {
-        return super.getCost().add(new BigDecimal(2.0));
+    public double getCost() {
+        return super.getCost() + 2.0;
     }
 
     @Override

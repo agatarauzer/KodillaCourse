@@ -1,12 +1,9 @@
-package com.kodilla.patterns_2;
+package com.kodilla.patterns_2.decorator;
 
 import com.kodilla.patterns_2.decorator.pizza.*;
-import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.math.BigDecimal;
 
 public class PizzaTests {
 
@@ -25,10 +22,10 @@ public class PizzaTests {
         pizza = new ArugulaDecorator(pizza);
 
         //When
-        BigDecimal cost = pizza.getCost();
+        double cost = pizza.getCost();
 
         //Then
-        Assert.assertThat(new BigDecimal(18.0), Matchers.comparesEqualTo(cost));
+        Assert.assertEquals(18.0, cost, 0.001);
     }
 
     @Test
